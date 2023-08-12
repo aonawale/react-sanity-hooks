@@ -1,11 +1,11 @@
-import {Query} from '../types/query'
+import {Query} from '../../types/query'
 import {
   QueryConstraint,
   QueryConstraintType,
   QueryFieldFilterConstraint,
   QueryOrderConstraint,
   QuerySliceConstraint,
-} from '../types/query-constraint'
+} from '../../types/query-constraint'
 
 const findConstraints = <T>(constraints: QueryConstraint[], type: QueryConstraintType) =>
   constraints.filter((constraint) => constraint.type === type) as T[]
@@ -25,8 +25,7 @@ const orderQuery = (constraint: QueryOrderConstraint[]) =>
     .reduce<string[]>((acc, item) => [...acc, `order(${item.field} ${item.direction})`], [])
     .join(' | ')
 
-const sliceQuery = (constraint: QuerySliceConstraint) =>
-  `${constraint.start || 0}...${constraint.limit}`
+const sliceQuery = (constraint: QuerySliceConstraint) => `${constraint.start}...${constraint.limit}`
 
 const buildQuery = (query: Query) => {
   const constraints = query.constraints || []
@@ -52,4 +51,4 @@ const buildQuery = (query: Query) => {
   return parts.join(' ')
 }
 
-export {buildQuery}
+export {buildQuery, findConstraints, filterQuery, orderQuery, sliceQuery}

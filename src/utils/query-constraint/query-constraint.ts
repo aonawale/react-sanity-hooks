@@ -1,4 +1,4 @@
-import { QueryFieldFilterConstraint, QueryFieldFilterConstraintOperator, QueryOrderConstraint, QueryOrderConstraintDirection, QuerySliceConstraint } from "../types/query-constraint";
+import { QueryFieldFilterConstraint, QueryFieldFilterConstraintOperator, QueryOrderConstraint, QueryOrderConstraintDirection, QuerySliceConstraint } from "../../types/query-constraint";
 
 const filter = (field: string, operator: QueryFieldFilterConstraintOperator, value: unknown): QueryFieldFilterConstraint => ({
   type: 'filter',
