@@ -6,9 +6,9 @@ interface GetDocument {
   id: string
 }
 
-const useGetDocuments = <T>(client: SanityClient, query?: GetDocument, projection?: string) => {
+const useGetDocument = <T>(client: SanityClient, query?: GetDocument, projection?: string) => {
   const documentQuery = query ? {...query, constraints: [filter('_id', '==', query.id)]} : undefined
   return useQuery<T>(client, documentQuery, projection)
 }
 
-export default useGetDocuments
+export default useGetDocument

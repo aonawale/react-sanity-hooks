@@ -1,58 +1,53 @@
 
 import useGetDocument from './use-get-document'
 import { SanityClient } from '@sanity/client'
+import {renderHook} from '@testing-library/react'
 
-let useSWRMock = jest.fn()
+let useQueryMock = jest.fn()
 
-jest.mock('swr', () => ({
+jest.mock('../use-query', () => ({
   __esModule: true,
-   default: jest.fn()
+  useQuery: jest.fn()
 }))
 
-
-// If you're using a private dataset you probably have to configure a separate write/read client.
-// https://www.sanity.io/help/js-client-usecdn-token
 const client = {
   fetch: jest.fn()
 } as unknown as SanityClient
 
-const DOCUMENT_TYPE = `post`
-const DOCUMENT_FIELDS = `
+const projection = `
   'id': _id,
   name,
   'image': image.asset -> url
 `
 
+const query = {id: '1'}
+
 describe('useGetDocument', () => {
   beforeEach(() => {
-    jest.resetAllMocks()
-    useSWRMock = jest.requireMock('swr').default
+    jest.clearAllMocks()
+    useQueryMock = jest.requireMock('../use-query').useQuery
   })
 
-  it('gets document without ID', async () => {
-    useGetDocument(client, { type: DOCUMENT_TYPE, fields: DOCUMENT_FIELDS})
-    expect(useSWRMock).toHaveBeenCalledTimes(1)
-    expect(useSWRMock.mock.lastCall[0]).toBeNull()
+  it('works without query and projection', async () => {
+    const {result} = renderHook(() => useGetDocument(client ))
 
-    // useSWRMock.mock.lastCall[1]()
-    expect(client.fetch).not.toHaveBeenCalled()
-    // expect(useSWRMock.mock.lastCall[1]()).toThrowError(new Error('Requires document ID'))
+    expect(result.cureent).toEqual(1)
+    expect(useQueryMock).not.toHaveBeenCalled()
   })
 
-  it('gets document with ID', async () => {
-    useGetDocument(client, { id: '1', type: DOCUMENT_TYPE, fields: DOCUMENT_FIELDS})
-    expect(useSWRMock).toHaveBeenCalledTimes(1)
-    console.log(useSWRMock.mock.lastCall )
-    expect(useSWRMock.mock.lastCall[0]).toEqual(["post", "1"])
+  it('works with only query', async () => {
+    const {result} = renderHook(() => useGetDocument(client, query,  ))
 
-    useSWRMock.mock.lastCall[1]()
-    expect(client.fetch).toHaveBeenCalledTimes(1)
-    expect(client.fetch).toHaveBeenCalledWith(`
-    *[_type == "post" && _id == "1"][0] {
-      'id': _id,
-      name,
-      'image': image.asset -> url·
-      }
-    `)
+    expect(result.cureent).toEqual(1)
+    expect(useQueryMock).toHaveBeenCalledTimes(1)
+    expect(useQueryMock).toHaveBeenCalledWith(1)
+  })
+
+  it('works with both query and projection', async () => {
+    const {result} = renderHook(() => useGetDocument(client, query, projection))
+
+    expect(result.cureent).toEqual(1)
+    expect(useQueryMock).toHaveBeenCalledTimes(1)
+    expect(useQueryMock).toHaveBeenCalledWith(1)
   })
 })

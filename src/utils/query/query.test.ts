@@ -11,7 +11,7 @@ const constraints = [
 ]
 
 describe('query: findConstraints', () => {
-  it('findConstraints', () => {
+  it('find constraints', () => {
     expect(findConstraints(constraints, 'filter')).toEqual(1)
     expect(findConstraints(constraints, 'order')).toEqual(1)
     expect(findConstraints(constraints, 'slice')).toEqual(1)
@@ -19,49 +19,49 @@ describe('query: findConstraints', () => {
 })
 
 describe('query: filterQuery', () => {
-  it('filterQuery', () => {
+  it('build empty filter query', () => {
     expect(filterQuery([])).toEqual(1)
   })
 
-  it('filterQuery', () => {
+  it('build filter query', () => {
     expect(filterQuery(findConstraints(constraints, 'filter'))).toEqual(1)
   })
 })
 
 describe('query: orderQuery', () => {
-  it('orderQuery', () => {
+  it('build empty order query', () => {
     expect(orderQuery([])).toEqual(1)
   })
 
-  it('orderQuery', () => {
+  it('build order query', () => {
     expect(orderQuery(findConstraints(constraints, 'order'))).toEqual(1)
   })
 })
 
 describe('query: sliceQuery', () => {
-  it('sliceQuery', () => {
+  it('build slice query', () => {
     expect(sliceQuery(findConstraints<QuerySliceConstraint>(constraints, 'slice')[0])).toEqual(1)
   })
 })
 
 describe('query: buildQuery', () => {
-  it('buildQuery', () => {
+  it('build empty query', () => {
     expect(buildQuery({constraints:[]})).toEqual(1)
   })
 
-  it('buildQuery', () => {
+  it('build filter only query', () => {
     expect(buildQuery({constraints: findConstraints(constraints, 'filter') })).toEqual(1)
   })
 
-  it('buildQuery', () => {
+  it('build order only query', () => {
     expect(buildQuery({constraints: findConstraints(constraints, 'order') })).toEqual(1)
   })
 
-  it('buildQuery', () => {
+  it('build slice only query', () => {
     expect(buildQuery({constraints: findConstraints(constraints, 'slice') })).toEqual(1)
   })
 
-  it('buildQuery', () => {
+  it('build combined filter, order, and slice query', () => {
     expect(buildQuery({constraints})).toEqual(1)
   })
 })
