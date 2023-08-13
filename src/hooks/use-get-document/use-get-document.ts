@@ -1,6 +1,6 @@
 import {SanityClient} from '@sanity/client'
-import { filter } from '../../utils'
-import { useQuery } from '../use-query'
+import {filter} from '../../utils'
+import {useQuery} from '../use-query'
 
 interface GetDocument {
   id: string

@@ -3,7 +3,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "project": "./tsconfig.json" },
   "env": { "es6": true },
-  "ignorePatterns": ["node_modules", "build", "coverage"],
+  "ignorePatterns": ["node_modules", "dist", "coverage"],
   "plugins": ["jest"],
   "extends": [
     "eslint:recommended",
@@ -11,7 +11,7 @@
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
-    "prettier",
+    "prettier"
   ],
   "settings": {
     "react": {

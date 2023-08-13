@@ -1,17 +1,17 @@
-import { SanityClient } from '@sanity/client'
-import { filter, order, slice } from './utils'
-import { useQuery, useQueryDocuments, useGetDocument } from './hooks'
+import {SanityClient} from '@sanity/client'
+import {filter, order, slice} from './utils'
+import {useQuery, useQueryDocuments, useGetDocument} from './hooks'
 
-() => {
+;() => {
   const client = {} as SanityClient
   const query = {
     constraints: [
       filter('name', '==', 'Sanity'),
-      filter('age', '>', 'Sanity'),
+      filter('age', '>', 18),
       order('name', 'asc'),
       order('age', 'desc'),
       slice(5, 10),
-    ]
+    ],
   }
   const projection = `
     'id': _id,
@@ -21,7 +21,7 @@ import { useQuery, useQueryDocuments, useGetDocument } from './hooks'
   `
   useQuery(client, query, projection)
 
-  useGetDocument(client, { id: '1', }, projection)
+  useGetDocument(client, {id: '1'}, projection)
 
   useQueryDocuments(client, {...query, type: 'people'}, projection)
 }

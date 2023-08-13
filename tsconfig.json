@@ -2,7 +2,6 @@
   "compilerOptions": {
     "module": "esnext",
     "lib": ["esnext"],
-    "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
     "rootDir": "./src",
@@ -16,6 +15,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "allowJs": false
   },
   "include": ["src"],
   "exclude": [

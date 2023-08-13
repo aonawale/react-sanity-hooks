@@ -1,6 +1,16 @@
-import { QueryFieldFilterConstraint, QueryFieldFilterConstraintOperator, QueryOrderConstraint, QueryOrderConstraintDirection, QuerySliceConstraint } from "../../types/query-constraint";
+import {
+  QueryFieldFilterConstraint,
+  QueryFieldFilterConstraintOperator,
+  QueryOrderConstraint,
+  QueryOrderConstraintDirection,
+  QuerySliceConstraint,
+} from '../../types/query-constraint'
 
-const filter = (field: string, operator: QueryFieldFilterConstraintOperator, value: unknown): QueryFieldFilterConstraint => ({
+const filter = (
+  field: string,
+  operator: QueryFieldFilterConstraintOperator,
+  value: unknown,
+): QueryFieldFilterConstraint => ({
   type: 'filter',
   field,
   operator,
@@ -19,8 +29,4 @@ const slice = (start: number, limit: number): QuerySliceConstraint => ({
   limit,
 })
 
-export {
-  filter,
-  order,
-  slice
-}
+export {filter, order, slice}

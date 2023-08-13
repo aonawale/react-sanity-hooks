@@ -1,17 +1,16 @@
-
 import useQueryDocuments from './use-query-documents'
-import { SanityClient } from '@sanity/client'
+import {SanityClient} from '@sanity/client'
 import {renderHook} from '@testing-library/react'
-import { filter, order, slice } from '../../utils'
+import {filter, order, slice} from '../../utils'
 
-jest.mock('swr', () => ({
+let useQueryMock = jest.fn()
+
+jest.mock('../use-query', () => ({
   __esModule: true,
-   default: jest.fn()
+  useQuery: jest.fn(),
 }))
 
-const client = {
-  fetch: jest.fn()
-} as unknown as SanityClient
+const client = {} as SanityClient
 
 const projection = `
   'id': _id,
@@ -23,38 +22,57 @@ const query = {
   type: 'people',
   constraints: [
     filter('name', '==', "'Sanity'"),
-    filter('age', '>', "'Sanity'"),
+    filter('age', '>', 18),
     order('name', 'asc'),
     order('age', 'desc'),
     slice(5, 10),
-  ]
+  ],
 }
 
 describe('useQueryDocuments', () => {
   beforeEach(() => {
     jest.clearAllMocks()
+    useQueryMock = jest.requireMock('../use-query').useQuery
   })
 
   it('works without query and projection', async () => {
-    const {result} = renderHook(() => useQueryDocuments(client ))
+    renderHook(() => useQueryDocuments(client))
 
-    expect(result.cureent).toEqual(1)
-    expect(client.fetch).not.toHaveBeenCalled()
+    expect(useQueryMock).toHaveBeenCalledTimes(1)
+    expect(useQueryMock).toHaveBeenCalledWith(client, undefined, undefined)
   })
 
   it('works with only query', async () => {
-    const {result} = renderHook(() => useQueryDocuments(client, query,  ))
+    renderHook(() => useQueryDocuments(client, query))
 
-    expect(result.cureent).toEqual(1)
-    expect(client.fetch).toHaveBeenCalledTimes(1)
-    expect(client.fetch).toHaveBeenCalledWith(1)
+    expect(useQueryMock).toHaveBeenCalledTimes(1)
+    expect(useQueryMock).toHaveBeenCalledWith(
+      client,
+      {
+        constraints: [
+          {field: '_type', operator: '==', type: 'filter', value: 'people'},
+          ...query.constraints,
+        ],
+        type: 'people',
+      },
+      undefined,
+    )
   })
 
   it('works with both query and projection', async () => {
-    const {result} = renderHook(() => useQueryDocuments(client, query, projection))
+    renderHook(() => useQueryDocuments(client, query, projection))
 
-    expect(result.cureent).toEqual(1)
-    expect(client.fetch).toHaveBeenCalledTimes(1)
-    expect(client.fetch).toHaveBeenCalledWith(1)
+    expect(useQueryMock).toHaveBeenCalledTimes(1)
+    expect(useQueryMock).toHaveBeenCalledWith(
+      client,
+      {
+        constraints: [
+          {field: '_type', operator: '==', type: 'filter', value: 'people'},
+          ...query.constraints,
+        ],
+        type: 'people',
+      },
+      projection,
+    )
   })
 })

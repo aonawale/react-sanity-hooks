@@ -25,7 +25,8 @@ const orderQuery = (constraint: QueryOrderConstraint[]) =>
     .reduce<string[]>((acc, item) => [...acc, `order(${item.field} ${item.direction})`], [])
     .join(' | ')
 
-const sliceQuery = (constraint: QuerySliceConstraint) => `${constraint.start}...${constraint.limit}`
+const sliceQuery = (constraint: QuerySliceConstraint) =>
+  `[${constraint.start}...${constraint.limit}]`
 
 const buildQuery = (query: Query) => {
   const constraints = query.constraints || []
