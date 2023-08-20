@@ -1,6 +1,6 @@
 import useQuery from './use-query'
 import {SanityClient} from '@sanity/client'
-import {renderHook} from '@testing-library/react'
+import {renderHook} from '@testing-library/react-hooks'
 import {filter, order, slice} from '../../utils'
 
 let useSWRMock = jest.fn()

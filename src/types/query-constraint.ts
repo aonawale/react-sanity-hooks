@@ -1,3 +1,4 @@
+/* The type of the query constraint */
 type QueryConstraintType = 'filter' | 'order' | 'slice'
 interface QueryConstraint {
   type: QueryConstraintType

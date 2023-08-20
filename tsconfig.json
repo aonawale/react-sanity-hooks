@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "lib": ["esnext"],
+    "module": "commonjs",
+    "target": "ES5",
     "declaration": true,
     "sourceMap": true,
     "rootDir": "./src",
-    "outDir": "./dist/esm",
+    "outDir": "./dist",
     "strict": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": false
   },
   "include": ["src"],
   "exclude": [
     "dist",
-    "node_modules"
+    "node_modules",
+    "src/**/*.test.ts"
   ]
 }
