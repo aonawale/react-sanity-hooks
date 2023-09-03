@@ -73,6 +73,10 @@ describe('query: sliceQuery', () => {
 
 describe('query: buildQuery', () => {
   it('build empty query', () => {
+    expect(buildQuery()).toEqual('*[]')
+  })
+
+  it('build empty query', () => {
     expect(buildQuery({})).toEqual('*[]')
   })
 

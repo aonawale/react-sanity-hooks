@@ -2,7 +2,6 @@ import useSWR from 'swr/immutable'
 import {SanityClient} from '@sanity/client'
 import {buildQuery} from '../../utils'
 import {Query} from '../../types'
-import {useMemo} from 'react'
 
 /**
  * A hook that fetches data from Sanity.
@@ -25,16 +24,13 @@ import {useMemo} from 'react'
  * => [{_id: '...', name: 'John', age: 42}, ...], undefined, false
  */
 const useQuery = <T>(client: SanityClient, query?: Query, projection?: string) => {
-  const parts = query ? [buildQuery(query)] : []
+  const parts = [buildQuery(query)]
   if (projection) parts.push(`{${projection}}`)
   const queryString = parts.length ? parts.join(' ') : undefined
 
   const response = useSWR<T>(queryString, () => client.fetch<T>(queryString || ''))
 
-  return useMemo(
-    () => ({data: response.data, error: response.error, isLoading: response.isLoading}),
-    [response],
-  )
+  return {data: response.data, error: response.error, isLoading: response.isLoading}
 }
 
 export default useQuery

@@ -44,8 +44,17 @@ describe('useQuery', () => {
 
     expect(result.current).toEqual({data: undefined, error: undefined, isLoading: undefined})
     expect(client.fetch).toHaveBeenCalledTimes(1)
-    expect(client.fetch).toHaveBeenCalledWith('')
-    expect(useSWRMock.mock.lastCall[0]).toEqual(undefined)
+    expect(client.fetch).toHaveBeenCalledWith('*[]')
+    expect(useSWRMock.mock.lastCall[0]).toEqual('*[]')
+  })
+
+  it('works with no query and a projection', async () => {
+    const {result} = renderHook(() => useQuery(client, undefined, projection))
+
+    expect(result.current).toEqual({data: undefined, error: undefined, isLoading: undefined})
+    expect(client.fetch).toHaveBeenCalledTimes(1)
+    expect(client.fetch).toHaveBeenCalledWith(`*[] {${projection}}`)
+    expect(useSWRMock.mock.lastCall[0]).toEqual(`*[] {${projection}}`)
   })
 
   it('works with only query', async () => {

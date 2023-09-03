@@ -109,7 +109,7 @@ const sliceQuery = (constraint: QuerySliceConstraint) => {
 
 /**
  * A function that builds a query from a query object.
- * @param query - A query object.
+ * @param query - A query object. (Optional).
  * @returns A query string.
  * @example
  * const query = {
@@ -137,8 +137,8 @@ const sliceQuery = (constraint: QuerySliceConstraint) => {
  * console.log(queryString)
  * => *[name match 'John'] | order(age asc) [0...10]
  */
-const buildQuery = (query: Query) => {
-  const constraints = query.constraints || []
+const buildQuery = (query?: Query) => {
+  const constraints = query?.constraints || []
 
   const filterConstraints = findConstraints<QueryFilterConstraint>(constraints, 'filter')
   const orderConstraints = findConstraints<QueryOrderConstraint>(constraints, 'order')

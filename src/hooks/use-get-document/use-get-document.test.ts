@@ -47,6 +47,13 @@ describe('useGetDocument', () => {
     )
   })
 
+  it('works with only projection', async () => {
+    renderHook(() => useGetDocument(client, undefined, projection))
+
+    expect(useQueryMock).toHaveBeenCalledTimes(1)
+    expect(useQueryMock).toHaveBeenCalledWith(client, undefined, undefined)
+  })
+
   it('works with id and type query', async () => {
     renderHook(() => useGetDocument(client, {...query, type: 'people'}))
 

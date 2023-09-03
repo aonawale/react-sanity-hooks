@@ -53,10 +53,16 @@ describe('useQueryDocuments', () => {
           {field: '_type', operator: '==', type: 'filter', value: "'people'"},
           ...query.constraints,
         ],
-        type: 'people',
       },
       undefined,
     )
+  })
+
+  it('does not work with only projection', async () => {
+    renderHook(() => useQueryDocuments(client, undefined, projection))
+
+    expect(useQueryMock).toHaveBeenCalledTimes(1)
+    expect(useQueryMock).toHaveBeenCalledWith(client, undefined, undefined)
   })
 
   it('works with both query and projection', async () => {
@@ -70,7 +76,6 @@ describe('useQueryDocuments', () => {
           {field: '_type', operator: '==', type: 'filter', value: "'people'"},
           ...query.constraints,
         ],
-        type: 'people',
       },
       projection,
     )
