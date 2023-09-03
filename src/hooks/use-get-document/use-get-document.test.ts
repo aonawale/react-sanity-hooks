@@ -1,6 +1,6 @@
 import useGetDocument from './use-get-document'
 import {SanityClient} from '@sanity/client'
-import {renderHook} from '@testing-library/react-hooks'
+import {renderHook} from '@testing-library/react'
 
 let useQueryMock = jest.fn()
 

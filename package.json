@@ -35,19 +35,19 @@
     "docs": "typedoc src/index.ts --out docs --plugin typedoc-plugin-markdown",
     "prepare": "install-peers",
     "prepare-release": "yarn lint && yarn typecheck && yarn test && yarn build && yarn docs",
-    "prepublish": "yarn prepare-release"
+    "publish": "yarn prepare-release && npm publish"
   },
   "peerDependencies": {
-    "@sanity/client": "^4.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "swr": "^2.0.1"
+    "@sanity/client": "^6.0.0",
+    "react": "^17.0.2 || ^18.2.0",
+    "react-dom": "^17.0.2 || ^18.2.0",
+    "swr": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.18.6",
-    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.2.6",
     "@types/react": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
