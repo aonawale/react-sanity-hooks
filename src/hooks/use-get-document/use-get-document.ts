@@ -35,8 +35,7 @@ const useGetDocument = <T>(client: SanityClient, query?: GetDocument, projection
         ],
       }
     : undefined
-  const result = useQuery<T[]>(client, documentQuery, projection)
-  return {...result, data: result.data?.[0]}
+  return useQuery<T[]>(client, documentQuery, projection)
 }
 
 export default useGetDocument
