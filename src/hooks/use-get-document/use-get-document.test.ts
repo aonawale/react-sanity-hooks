@@ -38,7 +38,10 @@ describe('useGetDocument', () => {
     expect(useQueryMock).toHaveBeenCalledWith(
       client,
       {
-        constraints: [{field: '_id', operator: '==', type: 'filter', value: '1'}],
+        constraints: [
+          {field: '_id', operator: '==', type: 'filter', value: '1'},
+          {limit: 0, start: 0, type: 'slice'},
+        ],
         id: '1',
       },
       undefined,
@@ -52,7 +55,10 @@ describe('useGetDocument', () => {
     expect(useQueryMock).toHaveBeenCalledWith(
       client,
       {
-        constraints: [{field: '_id', operator: '==', type: 'filter', value: '1'}],
+        constraints: [
+          {field: '_id', operator: '==', type: 'filter', value: '1'},
+          {limit: 0, start: 0, type: 'slice'},
+        ],
         id: '1',
       },
       projection,
