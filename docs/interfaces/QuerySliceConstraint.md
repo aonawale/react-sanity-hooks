@@ -12,29 +12,40 @@
 
 ### Properties
 
-- [limit](QuerySliceConstraint.md#limit)
-- [start](QuerySliceConstraint.md#start)
+- [endIndex](QuerySliceConstraint.md#endindex)
+- [inclusive](QuerySliceConstraint.md#inclusive)
+- [startIndex](QuerySliceConstraint.md#startindex)
 - [type](QuerySliceConstraint.md#type)
 
 ## Properties
 
-### limit
+### endIndex
 
-• **limit**: `number`
+• `Optional` **endIndex**: `number`
 
 #### Defined in
 
-[types/query-constraint.ts:36](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/types/query-constraint.ts#L36)
+[types/query-constraint.ts:36](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/types/query-constraint.ts#L36)
 
 ___
 
-### start
+### inclusive
 
-• **start**: `number`
+• `Optional` **inclusive**: `boolean`
 
 #### Defined in
 
-[types/query-constraint.ts:34](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/types/query-constraint.ts#L34)
+[types/query-constraint.ts:38](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/types/query-constraint.ts#L38)
+
+___
+
+### startIndex
+
+• **startIndex**: `number`
+
+#### Defined in
+
+[types/query-constraint.ts:34](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/types/query-constraint.ts#L34)
 
 ___
 
@@ -48,4 +59,4 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/types/query-constraint.ts#L32)
+[types/query-constraint.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/types/query-constraint.ts#L32)

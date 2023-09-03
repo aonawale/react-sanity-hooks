@@ -50,7 +50,7 @@ describe('useQueryDocuments', () => {
       client,
       {
         constraints: [
-          {field: '_type', operator: '==', type: 'filter', value: 'people'},
+          {field: '_type', operator: '==', type: 'filter', value: "'people'"},
           ...query.constraints,
         ],
         type: 'people',
@@ -67,7 +67,7 @@ describe('useQueryDocuments', () => {
       client,
       {
         constraints: [
-          {field: '_type', operator: '==', type: 'filter', value: 'people'},
+          {field: '_type', operator: '==', type: 'filter', value: "'people'"},
           ...query.constraints,
         ],
         type: 'people',

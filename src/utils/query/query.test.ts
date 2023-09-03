@@ -1,4 +1,3 @@
-import {QuerySliceConstraint} from '../../types'
 import {filter, order, slice} from '../query-constraint'
 import {buildQuery, findConstraints, filterQuery, orderQuery, sliceQuery} from './query'
 
@@ -20,7 +19,9 @@ describe('query: findConstraints', () => {
       {direction: 'asc', field: 'name', type: 'order'},
       {direction: 'desc', field: 'age', type: 'order'},
     ])
-    expect(findConstraints(constraints, 'slice')).toEqual([{limit: 10, start: 5, type: 'slice'}])
+    expect(findConstraints(constraints, 'slice')).toEqual([
+      {endIndex: 10, startIndex: 5, inclusive: undefined, type: 'slice'},
+    ])
   })
 })
 
@@ -49,10 +50,24 @@ describe('query: orderQuery', () => {
 })
 
 describe('query: sliceQuery', () => {
-  it('build slice query', () => {
-    expect(sliceQuery(findConstraints<QuerySliceConstraint>(constraints, 'slice')[0])).toEqual(
-      '[5...10]',
-    )
+  it('build slice query with only start index', () => {
+    expect(sliceQuery(slice(5))).toEqual('[5]')
+  })
+
+  it('build slice query with start and end index', () => {
+    expect(sliceQuery(slice(5, 10))).toEqual('[5...10]')
+  })
+
+  it('build slice query with start index, end index and inclusive', () => {
+    expect(sliceQuery(slice(5, 10, true))).toEqual('[5..10]')
+  })
+
+  it('enable inclusive when start and end index are equal and inclusive is not specified', () => {
+    expect(sliceQuery(slice(5, 5))).toEqual('[5..5]')
+  })
+
+  it('disable inclusive when start and end index are equal and inclusive is specified', () => {
+    expect(sliceQuery(slice(5, 5, false))).toEqual('[5...5]')
   })
 })
 

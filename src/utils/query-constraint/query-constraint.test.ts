@@ -48,6 +48,12 @@ describe('query-constraint', () => {
   })
 
   it('slice', () => {
-    expect(slice(0, 10)).toEqual({limit: 10, start: 0, type: 'slice'})
+    expect(slice(0, 10)).toEqual({endIndex: 10, startIndex: 0, inclusive: undefined, type: 'slice'})
+    expect(slice(0, 10, true)).toEqual({
+      endIndex: 10,
+      startIndex: 0,
+      inclusive: true,
+      type: 'slice',
+    })
   })
 })

@@ -42,16 +42,21 @@ const order = (field: string, direction: QueryOrderConstraintDirection): QueryOr
 
 /**
  * A function that builds a slice query.
- * @param start - The index to begin slicing the documents from.
- * @param limit - The amount of documents to return.
+ * @param startIndex - The index to begin slicing the documents from.
+ * @param endIndex - The amount of documents to return.
  * @returns A slice query.
  * @example
  * const sliceQuery = slice(0, 10)
  */
-const slice = (start: number, limit: number): QuerySliceConstraint => ({
+const slice = (
+  startIndex: number,
+  endIndex?: number,
+  inclusive?: boolean,
+): QuerySliceConstraint => ({
   type: 'slice',
-  start,
-  limit,
+  startIndex,
+  endIndex,
+  inclusive,
 })
 
 export {filter, order, slice}

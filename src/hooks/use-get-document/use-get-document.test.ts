@@ -39,8 +39,8 @@ describe('useGetDocument', () => {
       client,
       {
         constraints: [
-          {field: '_id', operator: '==', type: 'filter', value: '1'},
-          {limit: 0, start: 0, type: 'slice'},
+          {field: '_id', operator: '==', type: 'filter', value: "'1'"},
+          {endIndex: 0, startIndex: 0, inclusive: undefined, type: 'slice'},
         ],
         id: '1',
       },
@@ -56,8 +56,8 @@ describe('useGetDocument', () => {
       client,
       {
         constraints: [
-          {field: '_id', operator: '==', type: 'filter', value: '1'},
-          {limit: 0, start: 0, type: 'slice'},
+          {field: '_id', operator: '==', type: 'filter', value: "'1'"},
+          {endIndex: 0, startIndex: 0, inclusive: undefined, type: 'slice'},
         ],
         id: '1',
       },

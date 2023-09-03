@@ -31,9 +31,11 @@ interface QuerySliceConstraint extends QueryConstraint {
   /* The query constraint type. `slice`. */
   type: 'slice'
   /* The index to begin slicing the documents from. */
-  start: number
-  /* The amount of documents to return. */
-  limit: number
+  startIndex: number
+  /* The index to end slicing the documents. */
+  endIndex?: number
+  /* If the document at the endIndex should be included. */
+  inclusive?: boolean
 }
 
 export {

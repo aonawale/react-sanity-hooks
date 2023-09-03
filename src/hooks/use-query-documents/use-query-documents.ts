@@ -35,7 +35,10 @@ const useQueryDocuments = <T>(
   projection?: string,
 ) => {
   const documentsQuery = query
-    ? {...query, constraints: [filter('_type', '==', query.type), ...(query.constraints || [])]}
+    ? {
+        ...query,
+        constraints: [filter('_type', '==', `'${query.type}'`), ...(query.constraints || [])],
+      }
     : undefined
   return useQuery<T[]>(client, documentsQuery, projection)
 }

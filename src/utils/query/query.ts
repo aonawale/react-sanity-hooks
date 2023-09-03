@@ -85,15 +85,27 @@ const orderQuery = (constraints: QueryOrderConstraint[]) =>
  * @example
  * const constraint = {
  *  type: 'slice',
- *  start: 0,
- *  limit: 10,
+ *  startIndex: 0,
+ *  endIndex: 10,
+ *  inclusive: false,
  * }
  * const sliceQueryString = sliceQuery(constraint)
  * console.log(sliceQueryString)
  * => [0...10]
  */
-const sliceQuery = (constraint: QuerySliceConstraint) =>
-  `[${constraint.start}...${constraint.limit}]`
+const sliceQuery = (constraint: QuerySliceConstraint) => {
+  const parts = [`[${constraint.startIndex}`]
+
+  if (constraint.endIndex !== undefined) {
+    const inclusive = constraint.inclusive ?? constraint.startIndex === constraint.endIndex
+    parts.push(inclusive ? '..' : '...')
+    parts.push(constraint.endIndex.toString())
+  }
+
+  parts.push(']')
+
+  return parts.join('')
+}
 
 /**
  * A function that builds a query from a query object.
@@ -115,8 +127,9 @@ const sliceQuery = (constraint: QuerySliceConstraint) =>
  *    },
  *    {
  *     type: 'slice',
- *     start: 0,
- *     limit: 10,
+ *     startIndex: 0,
+ *     endIndex: 10,
+ *     inclusive: false,
  *    },
  *  ],
  * }

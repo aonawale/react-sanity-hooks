@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[types/query-constraint.ts:2](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/types/query-constraint.ts#L2)
+[types/query-constraint.ts:2](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/types/query-constraint.ts#L2)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:8](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/types/query-constraint.ts#L8)
+[types/query-constraint.ts:8](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/types/query-constraint.ts#L8)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:20](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/types/query-constraint.ts#L20)
+[types/query-constraint.ts:20](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/types/query-constraint.ts#L20)
 
 ## Functions
 
@@ -100,8 +100,9 @@ const query = {
    },
    {
     type: 'slice',
-    start: 0,
-    limit: 10,
+    startIndex: 0,
+    endIndex: 10,
+    inclusive: false,
    },
  ],
 }
@@ -112,7 +113,7 @@ console.log(queryString)
 
 #### Defined in
 
-[utils/query/query.ts:127](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/utils/query/query.ts#L127)
+[utils/query/query.ts:140](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/utils/query/query.ts#L140)
 
 ___
 
@@ -144,7 +145,7 @@ const filterQuery = filter('name', 'match', 'John')
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:18](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/utils/query-constraint/query-constraint.ts#L18)
+[utils/query-constraint/query-constraint.ts:18](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/utils/query-constraint/query-constraint.ts#L18)
 
 ___
 
@@ -190,7 +191,7 @@ console.log(filterQueryString)
 
 #### Defined in
 
-[utils/query/query.ts:43](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/utils/query/query.ts#L43)
+[utils/query/query.ts:43](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/utils/query/query.ts#L43)
 
 ___
 
@@ -222,7 +223,7 @@ An array of query constraints of the specified type.
 
 #### Defined in
 
-[utils/query/query.ts:17](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/utils/query/query.ts#L17)
+[utils/query/query.ts:17](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/utils/query/query.ts#L17)
 
 ___
 
@@ -253,7 +254,7 @@ const orderQuery = order('age', 'asc')
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:37](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/utils/query-constraint/query-constraint.ts#L37)
+[utils/query-constraint/query-constraint.ts:37](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/utils/query-constraint/query-constraint.ts#L37)
 
 ___
 
@@ -297,13 +298,13 @@ console.log(orderQueryString)
 
 #### Defined in
 
-[utils/query/query.ts:76](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/utils/query/query.ts#L76)
+[utils/query/query.ts:76](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/utils/query/query.ts#L76)
 
 ___
 
 ### slice
 
-▸ **slice**(`start`, `limit`): [`QuerySliceConstraint`](interfaces/QuerySliceConstraint.md)
+▸ **slice**(`startIndex`, `endIndex?`, `inclusive?`): [`QuerySliceConstraint`](interfaces/QuerySliceConstraint.md)
 
 A function that builds a slice query.
 
@@ -311,8 +312,9 @@ A function that builds a slice query.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `start` | `number` | The index to begin slicing the documents from. |
-| `limit` | `number` | The amount of documents to return. |
+| `startIndex` | `number` | The index to begin slicing the documents from. |
+| `endIndex?` | `number` | The amount of documents to return. |
+| `inclusive?` | `boolean` | - |
 
 #### Returns
 
@@ -328,7 +330,7 @@ const sliceQuery = slice(0, 10)
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:51](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/utils/query-constraint/query-constraint.ts#L51)
+[utils/query-constraint/query-constraint.ts:51](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/utils/query-constraint/query-constraint.ts#L51)
 
 ___
 
@@ -355,8 +357,9 @@ A slice query string.
 ```ts
 const constraint = {
  type: 'slice',
- start: 0,
- limit: 10,
+ startIndex: 0,
+ endIndex: 10,
+ inclusive: false,
 }
 const sliceQueryString = sliceQuery(constraint)
 console.log(sliceQueryString)
@@ -365,7 +368,7 @@ console.log(sliceQueryString)
 
 #### Defined in
 
-[utils/query/query.ts:95](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/utils/query/query.ts#L95)
+[utils/query/query.ts:96](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/utils/query/query.ts#L96)
 
 ___
 
@@ -416,7 +419,7 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-get-document/use-get-document.ts:26](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/hooks/use-get-document/use-get-document.ts#L26)
+[hooks/use-get-document/use-get-document.ts:26](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/hooks/use-get-document/use-get-document.ts#L26)
 
 ___
 
@@ -471,7 +474,7 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-query/use-query.ts:27](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/hooks/use-query/use-query.ts#L27)
+[hooks/use-query/use-query.ts:27](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/hooks/use-query/use-query.ts#L27)
 
 ___
 
@@ -527,4 +530,4 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-query-documents/use-query-documents.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/hooks/use-query-documents/use-query-documents.ts#L32)
+[hooks/use-query-documents/use-query-documents.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/e385cc5/src/hooks/use-query-documents/use-query-documents.ts#L32)
