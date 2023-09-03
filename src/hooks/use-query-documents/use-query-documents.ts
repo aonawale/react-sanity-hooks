@@ -36,6 +36,7 @@ const useQueryDocuments = <T>(
 ) => {
   const documentsQuery = query
     ? {
+        ordering: query.ordering,
         constraints: [filter('_type', '==', `'${query.type}'`), ...(query.constraints || [])],
       }
     : undefined

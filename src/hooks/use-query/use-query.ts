@@ -24,8 +24,8 @@ import {Query} from '../../types'
  * => [{_id: '...', name: 'John', age: 42}, ...], undefined, false
  */
 const useQuery = <T>(client: SanityClient, query?: Query, projection?: string) => {
-  const parts = [buildQuery(query)]
-  if (projection) parts.push(`{${projection}}`)
+  const parts = query ? [buildQuery(query)] : []
+  if (query && projection) parts.push(`{${projection}}`)
   const queryString = parts.length ? parts.join(' ') : undefined
 
   const response = useSWR<T>(queryString, () => client.fetch<T>(queryString || ''))

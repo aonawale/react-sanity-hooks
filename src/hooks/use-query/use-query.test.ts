@@ -44,8 +44,8 @@ describe('useQuery', () => {
 
     expect(result.current).toEqual({data: undefined, error: undefined, isLoading: undefined})
     expect(client.fetch).toHaveBeenCalledTimes(1)
-    expect(client.fetch).toHaveBeenCalledWith('*[]')
-    expect(useSWRMock.mock.lastCall[0]).toEqual('*[]')
+    expect(client.fetch).toHaveBeenCalledWith('')
+    expect(useSWRMock.mock.lastCall[0]).toEqual(undefined)
   })
 
   it('works with no query and a projection', async () => {
@@ -53,8 +53,8 @@ describe('useQuery', () => {
 
     expect(result.current).toEqual({data: undefined, error: undefined, isLoading: undefined})
     expect(client.fetch).toHaveBeenCalledTimes(1)
-    expect(client.fetch).toHaveBeenCalledWith(`*[] {${projection}}`)
-    expect(useSWRMock.mock.lastCall[0]).toEqual(`*[] {${projection}}`)
+    expect(client.fetch).toHaveBeenCalledWith('')
+    expect(useSWRMock.mock.lastCall[0]).toEqual(undefined)
   })
 
   it('works with only query', async () => {

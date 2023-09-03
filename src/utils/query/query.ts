@@ -138,7 +138,7 @@ const sliceQuery = (constraint: QuerySliceConstraint) => {
  * console.log(queryString)
  * => *[name match 'John'] | order(age asc) [0...10]
  */
-const buildQuery = (query?: Query) => {
+const buildQuery = (query: Query) => {
   const constraints = query?.constraints || []
 
   const filterConstraints = findConstraints<QueryFilterConstraint>(constraints, 'filter')
