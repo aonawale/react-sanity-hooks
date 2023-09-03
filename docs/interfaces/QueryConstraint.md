@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[types/query-constraint.ts:4](https://github.com/aonawale/react-sanity-hooks/blob/eb16935/src/types/query-constraint.ts#L4)
+[types/query-constraint.ts:4](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/types/query-constraint.ts#L4)

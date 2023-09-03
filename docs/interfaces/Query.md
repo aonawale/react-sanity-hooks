@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[types/query.ts:5](https://github.com/aonawale/react-sanity-hooks/blob/eb16935/src/types/query.ts#L5)
+[types/query.ts:5](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/types/query.ts#L5)
