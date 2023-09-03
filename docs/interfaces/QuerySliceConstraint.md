@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[types/query-constraint.ts:36](https://github.com/aonawale/react-sanity-hooks/blob/ac54aed/src/types/query-constraint.ts#L36)
+[types/query-constraint.ts:36](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/types/query-constraint.ts#L36)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:34](https://github.com/aonawale/react-sanity-hooks/blob/ac54aed/src/types/query-constraint.ts#L34)
+[types/query-constraint.ts:34](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/types/query-constraint.ts#L34)
 
 ___
 
@@ -48,4 +48,4 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/ac54aed/src/types/query-constraint.ts#L32)
+[types/query-constraint.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/df1921e/src/types/query-constraint.ts#L32)
