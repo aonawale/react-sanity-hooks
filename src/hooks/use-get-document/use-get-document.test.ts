@@ -6,7 +6,7 @@ let useQueryMock = jest.fn()
 
 jest.mock('../use-query', () => ({
   __esModule: true,
-  useQuery: jest.fn(),
+  useQuery: jest.fn().mockReturnValue({data: undefined, error: undefined, isLoading: undefined}),
 }))
 
 const client = {} as SanityClient
@@ -40,9 +40,25 @@ describe('useGetDocument', () => {
       {
         constraints: [
           {field: '_id', operator: '==', type: 'filter', value: "'1'"},
-          {endIndex: 0, startIndex: 0, inclusive: undefined, type: 'slice'},
+          {endIndex: undefined, startIndex: 0, inclusive: undefined, type: 'slice'},
         ],
-        id: '1',
+      },
+      undefined,
+    )
+  })
+
+  it('works with id and type query', async () => {
+    renderHook(() => useGetDocument(client, {...query, type: 'people'}))
+
+    expect(useQueryMock).toHaveBeenCalledTimes(1)
+    expect(useQueryMock).toHaveBeenCalledWith(
+      client,
+      {
+        constraints: [
+          {field: '_id', operator: '==', type: 'filter', value: "'1'"},
+          {field: '_type', operator: '==', type: 'filter', value: "'people'"},
+          {endIndex: undefined, startIndex: 0, inclusive: undefined, type: 'slice'},
+        ],
       },
       undefined,
     )
@@ -57,9 +73,8 @@ describe('useGetDocument', () => {
       {
         constraints: [
           {field: '_id', operator: '==', type: 'filter', value: "'1'"},
-          {endIndex: 0, startIndex: 0, inclusive: undefined, type: 'slice'},
+          {endIndex: undefined, startIndex: 0, inclusive: undefined, type: 'slice'},
         ],
-        id: '1',
       },
       projection,
     )

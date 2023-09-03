@@ -5,6 +5,8 @@ import {useQuery} from '../use-query'
 interface GetDocument {
   /* The document ID to fetch. */
   id: string
+  /* The document Type to fetch. (Optional) */
+  type?: string
 }
 
 /**
@@ -25,9 +27,16 @@ interface GetDocument {
  */
 const useGetDocument = <T>(client: SanityClient, query?: GetDocument, projection?: string) => {
   const documentQuery = query
-    ? {...query, constraints: [filter('_id', '==', `'${query.id}'`), slice(0, 0)]}
+    ? {
+        constraints: [
+          filter('_id', '==', `'${query.id}'`),
+          ...(query.type ? [filter('_type', '==', `'${query.type}'`)] : []),
+          slice(0),
+        ],
+      }
     : undefined
-  return useQuery<T>(client, documentQuery, projection)
+  const result = useQuery<T[]>(client, documentQuery, projection)
+  return {...result, data: result.data?.[0]}
 }
 
 export default useGetDocument

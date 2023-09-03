@@ -70,7 +70,7 @@ describe('useQuery', () => {
       `*[name == 'Sanity' && age > 18] order(name asc) | order(age desc) [5...10] {${projection}}`,
     )
     expect(useSWRMock.mock.lastCall[0]).toEqual(
-      "*[name == 'Sanity' && age > 18] order(name asc) | order(age desc) [5...10]",
+      `*[name == 'Sanity' && age > 18] order(name asc) | order(age desc) [5...10] {${projection}}`,
     )
   })
 })
