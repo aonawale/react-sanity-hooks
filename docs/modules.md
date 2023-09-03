@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[types/query-constraint.ts:2](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/types/query-constraint.ts#L2)
+[types/query-constraint.ts:2](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/types/query-constraint.ts#L2)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:8](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/types/query-constraint.ts#L8)
+[types/query-constraint.ts:8](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/types/query-constraint.ts#L8)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:20](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/types/query-constraint.ts#L20)
+[types/query-constraint.ts:20](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/types/query-constraint.ts#L20)
 
 ## Functions
 
@@ -113,7 +113,7 @@ console.log(queryString)
 
 #### Defined in
 
-[utils/query/query.ts:140](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/utils/query/query.ts#L140)
+[utils/query/query.ts:140](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/utils/query/query.ts#L140)
 
 ___
 
@@ -145,7 +145,7 @@ const filterQuery = filter('name', 'match', 'John')
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:18](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/utils/query-constraint/query-constraint.ts#L18)
+[utils/query-constraint/query-constraint.ts:18](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/utils/query-constraint/query-constraint.ts#L18)
 
 ___
 
@@ -191,7 +191,7 @@ console.log(filterQueryString)
 
 #### Defined in
 
-[utils/query/query.ts:43](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/utils/query/query.ts#L43)
+[utils/query/query.ts:43](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/utils/query/query.ts#L43)
 
 ___
 
@@ -223,7 +223,7 @@ An array of query constraints of the specified type.
 
 #### Defined in
 
-[utils/query/query.ts:17](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/utils/query/query.ts#L17)
+[utils/query/query.ts:17](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/utils/query/query.ts#L17)
 
 ___
 
@@ -254,7 +254,7 @@ const orderQuery = order('age', 'asc')
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:37](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/utils/query-constraint/query-constraint.ts#L37)
+[utils/query-constraint/query-constraint.ts:37](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/utils/query-constraint/query-constraint.ts#L37)
 
 ___
 
@@ -298,7 +298,7 @@ console.log(orderQueryString)
 
 #### Defined in
 
-[utils/query/query.ts:76](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/utils/query/query.ts#L76)
+[utils/query/query.ts:76](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/utils/query/query.ts#L76)
 
 ___
 
@@ -330,7 +330,7 @@ const sliceQuery = slice(0, 10)
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:51](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/utils/query-constraint/query-constraint.ts#L51)
+[utils/query-constraint/query-constraint.ts:51](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/utils/query-constraint/query-constraint.ts#L51)
 
 ___
 
@@ -368,7 +368,7 @@ console.log(sliceQueryString)
 
 #### Defined in
 
-[utils/query/query.ts:96](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/utils/query/query.ts#L96)
+[utils/query/query.ts:96](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/utils/query/query.ts#L96)
 
 ___
 
@@ -419,7 +419,7 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-get-document/use-get-document.ts:26](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/hooks/use-get-document/use-get-document.ts#L26)
+[hooks/use-get-document/use-get-document.ts:28](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/hooks/use-get-document/use-get-document.ts#L28)
 
 ___
 
@@ -474,7 +474,7 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-query/use-query.ts:27](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/hooks/use-query/use-query.ts#L27)
+[hooks/use-query/use-query.ts:27](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/hooks/use-query/use-query.ts#L27)
 
 ___
 
@@ -530,4 +530,4 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-query-documents/use-query-documents.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/448901d/src/hooks/use-query-documents/use-query-documents.ts#L32)
+[hooks/use-query-documents/use-query-documents.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/64e67b0/src/hooks/use-query-documents/use-query-documents.ts#L32)
