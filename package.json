@@ -33,8 +33,9 @@
     "format": "prettier \"src/**/*.ts\" --write",
     "test": "jest --coverage",
     "docs": "typedoc src/index.ts --out docs --plugin typedoc-plugin-markdown",
+    "prepare": "install-peers",
     "prepare-release": "yarn lint && yarn typecheck && yarn test && yarn build && yarn docs",
-    "prepare": "install-peers"
+    "prepublish": "yarn prepare-release"
   },
   "peerDependencies": {
     "@sanity/client": "^4.0.1",
