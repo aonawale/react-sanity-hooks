@@ -132,6 +132,7 @@ const sliceQuery = (constraint: QuerySliceConstraint) => {
  *     inclusive: false,
  *    },
  *  ],
+ *  ordering: 'selection',
  * }
  * const queryString = buildQuery(query)
  * console.log(queryString)
@@ -151,11 +152,21 @@ const buildQuery = (query?: Query) => {
   } else {
     parts.push(`*[]`)
   }
-  if (orderConstraints.length > 0) {
-    parts.push(orderQuery(orderConstraints))
-  }
-  if (sliceConstraint) {
-    parts.push(sliceQuery(sliceConstraint))
+
+  if (query?.ordering === 'selection') {
+    if (sliceConstraint) {
+      parts.push(sliceQuery(sliceConstraint))
+    }
+    if (orderConstraints.length > 0) {
+      parts.push(`| ${orderQuery(orderConstraints)}`)
+    }
+  } else {
+    if (orderConstraints.length > 0) {
+      parts.push(`| ${orderQuery(orderConstraints)}`)
+    }
+    if (sliceConstraint) {
+      parts.push(sliceQuery(sliceConstraint))
+    }
   }
 
   return parts.join(' ')

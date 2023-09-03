@@ -88,7 +88,7 @@ describe('query: buildQuery', () => {
 
   it('build order only query', () => {
     expect(buildQuery({constraints: findConstraints(constraints, 'order')})).toEqual(
-      '*[] order(name asc) | order(age desc)',
+      '*[] | order(name asc) | order(age desc)',
     )
   })
 
@@ -98,7 +98,19 @@ describe('query: buildQuery', () => {
 
   it('build combined filter, order, and slice query', () => {
     expect(buildQuery({constraints})).toEqual(
-      "*[name == 'Sanity' && age > 18] order(name asc) | order(age desc) [5...10]",
+      "*[name == 'Sanity' && age > 18] | order(name asc) | order(age desc) [5...10]",
+    )
+  })
+
+  it('build combined filter, order, and slice query with all order mode', () => {
+    expect(buildQuery({constraints, ordering: 'all'})).toEqual(
+      "*[name == 'Sanity' && age > 18] | order(name asc) | order(age desc) [5...10]",
+    )
+  })
+
+  it('build combined filter, order, and slice query with selection order mode', () => {
+    expect(buildQuery({constraints, ordering: 'selection'})).toEqual(
+      "*[name == 'Sanity' && age > 18] [5...10] | order(name asc) | order(age desc)",
     )
   })
 })

@@ -7,6 +7,7 @@
 ### Properties
 
 - [constraints](Query.md#constraints)
+- [ordering](Query.md#ordering)
 
 ## Properties
 
@@ -16,4 +17,14 @@
 
 #### Defined in
 
-[types/query.ts:5](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/types/query.ts#L5)
+[types/query.ts:5](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/types/query.ts#L5)
+
+___
+
+### ordering
+
+• `Optional` **ordering**: ``"all"`` \| ``"selection"``
+
+#### Defined in
+
+[types/query.ts:7](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/types/query.ts#L7)

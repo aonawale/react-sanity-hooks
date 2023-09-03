@@ -63,10 +63,10 @@ describe('useQuery', () => {
     expect(result.current).toEqual({data: undefined, error: undefined, isLoading: undefined})
     expect(client.fetch).toHaveBeenCalledTimes(1)
     expect(client.fetch).toHaveBeenCalledWith(
-      `*[name == 'Sanity' && age > 18] order(name asc) | order(age desc) [5...10]`,
+      `*[name == 'Sanity' && age > 18] | order(name asc) | order(age desc) [5...10]`,
     )
     expect(useSWRMock.mock.lastCall[0]).toEqual(
-      "*[name == 'Sanity' && age > 18] order(name asc) | order(age desc) [5...10]",
+      "*[name == 'Sanity' && age > 18] | order(name asc) | order(age desc) [5...10]",
     )
   })
 
@@ -76,10 +76,10 @@ describe('useQuery', () => {
     expect(result.current).toEqual({data: undefined, error: undefined, isLoading: undefined})
     expect(client.fetch).toHaveBeenCalledTimes(1)
     expect(client.fetch).toHaveBeenCalledWith(
-      `*[name == 'Sanity' && age > 18] order(name asc) | order(age desc) [5...10] {${projection}}`,
+      `*[name == 'Sanity' && age > 18] | order(name asc) | order(age desc) [5...10] {${projection}}`,
     )
     expect(useSWRMock.mock.lastCall[0]).toEqual(
-      `*[name == 'Sanity' && age > 18] order(name asc) | order(age desc) [5...10] {${projection}}`,
+      `*[name == 'Sanity' && age > 18] | order(name asc) | order(age desc) [5...10] {${projection}}`,
     )
   })
 })

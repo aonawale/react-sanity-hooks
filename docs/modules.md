@@ -22,12 +22,8 @@
 
 - [buildQuery](modules.md#buildquery)
 - [filter](modules.md#filter)
-- [filterQuery](modules.md#filterquery)
-- [findConstraints](modules.md#findconstraints)
 - [order](modules.md#order)
-- [orderQuery](modules.md#orderquery)
 - [slice](modules.md#slice)
-- [sliceQuery](modules.md#slicequery)
 - [useGetDocument](modules.md#usegetdocument)
 - [useQuery](modules.md#usequery)
 - [useQueryDocuments](modules.md#usequerydocuments)
@@ -40,7 +36,7 @@
 
 #### Defined in
 
-[types/query-constraint.ts:2](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/types/query-constraint.ts#L2)
+[types/query-constraint.ts:2](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/types/query-constraint.ts#L2)
 
 ___
 
@@ -50,7 +46,7 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:8](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/types/query-constraint.ts#L8)
+[types/query-constraint.ts:8](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/types/query-constraint.ts#L8)
 
 ___
 
@@ -60,7 +56,7 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:20](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/types/query-constraint.ts#L20)
+[types/query-constraint.ts:20](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/types/query-constraint.ts#L20)
 
 ## Functions
 
@@ -105,6 +101,7 @@ const query = {
     inclusive: false,
    },
  ],
+ ordering: 'selection',
 }
 const queryString = buildQuery(query)
 console.log(queryString)
@@ -113,7 +110,7 @@ console.log(queryString)
 
 #### Defined in
 
-[utils/query/query.ts:140](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/utils/query/query.ts#L140)
+[utils/query/query.ts:141](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/utils/query/query.ts#L141)
 
 ___
 
@@ -145,85 +142,7 @@ const filterQuery = filter('name', 'match', 'John')
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:18](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/utils/query-constraint/query-constraint.ts#L18)
-
-___
-
-### filterQuery
-
-▸ **filterQuery**(`constraints`): `string`
-
-A function that builds a filter query from a list of filter constraints.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `constraints` | [`QueryFilterConstraint`](interfaces/QueryFilterConstraint.md)[] | An array of filter constraints. |
-
-#### Returns
-
-`string`
-
-A filter query string.
-
-**`Example`**
-
-```ts
-const constraints = [
- {
-   type: 'filter',
-   field: 'name',
-   operator: 'match',
-   value: 'John',
- },
- {
-   type: 'filter',
-   field: 'age',
-   operator: '>=',
-   value: 18,
- },
-]
-const filterQueryString = filterQuery(constraints)
-console.log(filterQueryString)
-=> [name match 'John'] && [age >= 18]
-```
-
-#### Defined in
-
-[utils/query/query.ts:43](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/utils/query/query.ts#L43)
-
-___
-
-### findConstraints
-
-▸ **findConstraints**<`T`\>(`constraints`, `type`): `T`[]
-
-A generic function that finds constraints of a specific type and
-returns them as an array of the generic type provided during the function call.
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `constraints` | [`QueryConstraint`](interfaces/QueryConstraint.md)[] | An array of query constraints. |
-| `type` | [`QueryConstraintType`](modules.md#queryconstrainttype) | The type of query constraint to find. |
-
-#### Returns
-
-`T`[]
-
-An array of query constraints of the specified type.
-
-#### Defined in
-
-[utils/query/query.ts:17](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/utils/query/query.ts#L17)
+[utils/query-constraint/query-constraint.ts:18](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/utils/query-constraint/query-constraint.ts#L18)
 
 ___
 
@@ -254,51 +173,7 @@ const orderQuery = order('age', 'asc')
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:37](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/utils/query-constraint/query-constraint.ts#L37)
-
-___
-
-### orderQuery
-
-▸ **orderQuery**(`constraints`): `string`
-
-A function that builds an order query from a list of order constraints.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `constraints` | [`QueryOrderConstraint`](interfaces/QueryOrderConstraint.md)[] | An array of order constraints. |
-
-#### Returns
-
-`string`
-
-An order query string.
-
-**`Example`**
-
-```ts
-const constraints = [
- {
-   type: 'order',
-   field: 'age',
-   direction: 'asc',
- },
- {
-   type: 'order',
-   field: 'name',
-   direction: 'desc',
- },
-]
-const orderQueryString = orderQuery(constraints)
-console.log(orderQueryString)
-=> order(age asc) | order(name desc)
-```
-
-#### Defined in
-
-[utils/query/query.ts:76](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/utils/query/query.ts#L76)
+[utils/query-constraint/query-constraint.ts:37](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/utils/query-constraint/query-constraint.ts#L37)
 
 ___
 
@@ -330,45 +205,7 @@ const sliceQuery = slice(0, 10)
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:51](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/utils/query-constraint/query-constraint.ts#L51)
-
-___
-
-### sliceQuery
-
-▸ **sliceQuery**(`constraint`): `string`
-
-A function that builds a slice query from a slice constraint.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `constraint` | [`QuerySliceConstraint`](interfaces/QuerySliceConstraint.md) | A slice constraint. |
-
-#### Returns
-
-`string`
-
-A slice query string.
-
-**`Example`**
-
-```ts
-const constraint = {
- type: 'slice',
- startIndex: 0,
- endIndex: 10,
- inclusive: false,
-}
-const sliceQueryString = sliceQuery(constraint)
-console.log(sliceQueryString)
-=> [0...10]
-```
-
-#### Defined in
-
-[utils/query/query.ts:96](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/utils/query/query.ts#L96)
+[utils/query-constraint/query-constraint.ts:51](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/utils/query-constraint/query-constraint.ts#L51)
 
 ___
 
@@ -419,7 +256,7 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-get-document/use-get-document.ts:28](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/hooks/use-get-document/use-get-document.ts#L28)
+[hooks/use-get-document/use-get-document.ts:28](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/hooks/use-get-document/use-get-document.ts#L28)
 
 ___
 
@@ -474,7 +311,7 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-query/use-query.ts:26](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/hooks/use-query/use-query.ts#L26)
+[hooks/use-query/use-query.ts:26](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/hooks/use-query/use-query.ts#L26)
 
 ___
 
@@ -530,4 +367,4 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-query-documents/use-query-documents.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/c8af1be/src/hooks/use-query-documents/use-query-documents.ts#L32)
+[hooks/use-query-documents/use-query-documents.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/hooks/use-query-documents/use-query-documents.ts#L32)

@@ -1,1 +1,1 @@
-export * from './query'
+export {buildQuery} from './query'
