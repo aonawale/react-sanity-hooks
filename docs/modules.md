@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[types/query-constraint.ts:2](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/types/query-constraint.ts#L2)
+[types/query-constraint.ts:2](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/types/query-constraint.ts#L2)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:8](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/types/query-constraint.ts#L8)
+[types/query-constraint.ts:8](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/types/query-constraint.ts#L8)
 
 ___
 
@@ -56,13 +56,13 @@ ___
 
 #### Defined in
 
-[types/query-constraint.ts:20](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/types/query-constraint.ts#L20)
+[types/query-constraint.ts:20](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/types/query-constraint.ts#L20)
 
 ## Functions
 
 ### buildQuery
 
-▸ **buildQuery**(`query?`): `string`
+▸ **buildQuery**(`query`): `string`
 
 A function that builds a query from a query object.
 
@@ -70,7 +70,7 @@ A function that builds a query from a query object.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `query?` | [`Query`](interfaces/Query.md) | A query object. (Optional). |
+| `query` | [`Query`](interfaces/Query.md) | A query object. (Optional). |
 
 #### Returns
 
@@ -110,7 +110,7 @@ console.log(queryString)
 
 #### Defined in
 
-[utils/query/query.ts:141](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/utils/query/query.ts#L141)
+[utils/query/query.ts:141](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/utils/query/query.ts#L141)
 
 ___
 
@@ -142,7 +142,7 @@ const filterQuery = filter('name', 'match', 'John')
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:18](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/utils/query-constraint/query-constraint.ts#L18)
+[utils/query-constraint/query-constraint.ts:18](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/utils/query-constraint/query-constraint.ts#L18)
 
 ___
 
@@ -173,7 +173,7 @@ const orderQuery = order('age', 'asc')
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:37](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/utils/query-constraint/query-constraint.ts#L37)
+[utils/query-constraint/query-constraint.ts:37](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/utils/query-constraint/query-constraint.ts#L37)
 
 ___
 
@@ -205,7 +205,7 @@ const sliceQuery = slice(0, 10)
 
 #### Defined in
 
-[utils/query-constraint/query-constraint.ts:51](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/utils/query-constraint/query-constraint.ts#L51)
+[utils/query-constraint/query-constraint.ts:51](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/utils/query-constraint/query-constraint.ts#L51)
 
 ___
 
@@ -256,7 +256,7 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-get-document/use-get-document.ts:28](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/hooks/use-get-document/use-get-document.ts#L28)
+[hooks/use-get-document/use-get-document.ts:28](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/hooks/use-get-document/use-get-document.ts#L28)
 
 ___
 
@@ -311,7 +311,7 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-query/use-query.ts:26](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/hooks/use-query/use-query.ts#L26)
+[hooks/use-query/use-query.ts:26](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/hooks/use-query/use-query.ts#L26)
 
 ___
 
@@ -367,4 +367,4 @@ console.log(data, error, isLoading)
 
 #### Defined in
 
-[hooks/use-query-documents/use-query-documents.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/3937d63/src/hooks/use-query-documents/use-query-documents.ts#L32)
+[hooks/use-query-documents/use-query-documents.ts:32](https://github.com/aonawale/react-sanity-hooks/blob/7767a83/src/hooks/use-query-documents/use-query-documents.ts#L32)
