@@ -17,8 +17,8 @@ import {
  */
 const filter = (
   field: string,
-  operator: QueryFilterConstraintOperator,
-  value: unknown,
+  operator?: QueryFilterConstraintOperator,
+  value?: unknown,
 ): QueryFilterConstraint => ({
   type: 'filter',
   field,

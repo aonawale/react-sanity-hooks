@@ -40,6 +40,12 @@ describe('query-constraint', () => {
       type: 'filter',
       value: '"textbook"',
     })
+    expect(
+      filter('references(*[_type=="discount" && dateTime(endDate) >= dateTime(now())]._id)'),
+    ).toEqual({
+      field: 'references(*[_type=="discount" && dateTime(endDate) >= dateTime(now())]._id)',
+      type: 'filter',
+    })
   })
 
   it('order', () => {
