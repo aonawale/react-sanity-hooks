@@ -1,7 +1,6 @@
 import useSWR from 'swr/immutable'
 import {SanityClient} from '@sanity/client'
-import {buildQuery} from '../../utils'
-import {Query} from '../../types'
+import {Query, buildQuery} from '@aonawale/sanity-query'
 
 /**
  * A hook that fetches data from Sanity.
@@ -27,9 +26,7 @@ const useQuery = <T>(client: SanityClient, query?: Query, projection?: string) =
   const parts = query ? [buildQuery(query)] : []
   if (query && projection) parts.push(`{${projection}}`)
   const queryString = parts.length ? parts.join(' ') : undefined
-
   const response = useSWR<T>(queryString, () => client.fetch<T>(queryString || ''))
-
   return {data: response.data, error: response.error, isLoading: response.isLoading}
 }
 

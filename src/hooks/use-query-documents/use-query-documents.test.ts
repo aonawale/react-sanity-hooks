@@ -1,7 +1,7 @@
 import useQueryDocuments from './use-query-documents'
 import {SanityClient} from '@sanity/client'
 import {renderHook} from '@testing-library/react'
-import {filter, order, slice} from '../../utils'
+import {filter, order, slice} from '@aonawale/sanity-query'
 
 let useQueryMock = jest.fn()
 

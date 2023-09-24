@@ -1,6 +1,5 @@
 import {SanityClient} from '@sanity/client'
-import {Query} from '../../types'
-import {filter} from '../../utils'
+import {Query, filter} from '@aonawale/sanity-query'
 import {useQuery} from '../use-query'
 
 interface QueryDocuments extends Query {
@@ -37,7 +36,7 @@ const useQueryDocuments = <T>(
   const documentsQuery = query
     ? {
         ordering: query.ordering,
-        constraints: [filter('_type', '==', `'${query.type}'`), ...(query.constraints || [])],
+        constraints: [filter('_type', '==', query.type), ...(query.constraints || [])],
       }
     : undefined
   return useQuery<T[]>(client, documentsQuery, documentsQuery ? projection : undefined)

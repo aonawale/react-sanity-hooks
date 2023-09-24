@@ -1,5 +1,5 @@
 import {SanityClient} from '@sanity/client'
-import {filter, slice} from '../../utils'
+import {filter, slice} from '@aonawale/sanity-query'
 import {useQuery} from '../use-query'
 
 interface GetDocument {
@@ -29,8 +29,8 @@ const useGetDocument = <T>(client: SanityClient, query?: GetDocument, projection
   const documentQuery = query
     ? {
         constraints: [
-          filter('_id', '==', `'${query.id}'`),
-          ...(query.type ? [filter('_type', '==', `'${query.type}'`)] : []),
+          filter('_id', '==', query.id),
+          ...(query.type ? [filter('_type', '==', query.type)] : []),
           slice(0),
         ],
       }

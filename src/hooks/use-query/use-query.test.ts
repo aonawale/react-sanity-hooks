@@ -1,7 +1,7 @@
 import useQuery from './use-query'
 import {SanityClient} from '@sanity/client'
 import {renderHook} from '@testing-library/react'
-import {filter, order, slice} from '../../utils'
+import {filter, order, slice} from '@aonawale/sanity-query'
 
 let useSWRMock = jest.fn()
 
@@ -25,7 +25,7 @@ const projection = `
 
 const query = {
   constraints: [
-    filter('name', '==', "'Sanity'"),
+    filter('name', '==', 'Sanity'),
     filter('age', '>', 18),
     order('name', 'asc'),
     order('age', 'desc'),

@@ -1,1 +1,0 @@
-export {buildQuery} from './query'
